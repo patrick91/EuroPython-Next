@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny, IsAdminUser
 from user.serializers import UserSerializer, GroupSerializer
 
 
@@ -9,6 +10,13 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            return User.objects.all()
+        else:
+            return User.objects.filter(id=self.request.user.id)
 
 
 class GroupViewSet(viewsets.ModelViewSet):
