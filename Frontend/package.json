@@ -1,0 +1,25 @@
+{
+  "name": "EuroPython",
+  "version": "0.0.0",
+  "main": "js/index.jsx",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool --hot --progress --port 8888 --colors",
+    "build": "webpack"
+  },
+  "author": "",
+  "dependencies": {
+    "babel-core": "^5.8.21",
+    "babel-loader": "^5.3.2",
+    "react": "^0.13.3",
+    "react-formal": "^0.8.3",
+    "webpack": "^1.11.0",
+    "yup": "^0.9.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.15.6",
+    "eslint": "^1.1.0",
+    "eslint-plugin-react": "^3.2.1",
+    "style-loader": "^0.12.3",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
