@@ -1,4 +1,5 @@
 {
+    "parser": "babel-eslint",
     "env": {
         "es6": true,
         "node": true,
@@ -53,7 +54,7 @@
         "vars-on-top": 1,
         "wrap-iife": 2,
         "array-bracket-spacing": [2, "never"],
-        "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+        "brace-style": [2, "1tbs", { "allowSingleLine": true }],
         "comma-spacing": [2, {"before": false, "after": true}],
         "computed-property-spacing": [2, "never"],
         "consistent-this": [1, "self"],

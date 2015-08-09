@@ -1,8 +1,8 @@
 module.exports = {
     context: __dirname + '/js',
     entry: {
-        'index': './entrypoints/index',
-        'registration': './entrypoints/registration',
+        index: './entrypoints/index',
+        registration: './entrypoints/registration',
     },
     output: {
         filename: '[name].entry.js',
@@ -11,10 +11,10 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.jsx$/, loader: 'babel-loader' }
-        ]
+            { test: /\.jsx$/, loader: 'babel-loader' },
+        ],
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json']
-    }
+        extensions: ['', '.js', '.jsx', '.json'],
+    },
 };

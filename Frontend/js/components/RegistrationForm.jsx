@@ -3,6 +3,8 @@ var React = require('react');
 var Form = require('react-formal');
 var yup = require('yup');
 
+var redux = require('redux');
+
 var defaultStr = yup.string().default('');
 
 
@@ -13,10 +15,27 @@ var userSchema = yup.object({
 });
 
 class RegistrationForm extends React.Component {
+    static propTypes = {
+        actions: React.PropTypes.object.isRequired,
+        user: React.PropTypes.object.isRequired,
+    };
+
+    constructor() {
+        super();
+    }
+
+    register() {
+        const user = this.state;
+
+        this.props.actions.register(user.username, user.email, user.password);
+    }
+
     render() {
-        return <Form
+        const form = <Form
           schema={userSchema}
           defaultValue={userSchema.default()}
+          onChange={model => this.setState(model)}
+          onSubmit={() => this.register()}
         >
           <div className="row">
             <label>Username</label>
@@ -40,9 +59,18 @@ class RegistrationForm extends React.Component {
             <Form.Message for={['password']}/>
           </div>
 
-
-        <Form.Button type='submit'>Submit</Form.Button>
+          <Form.Button type='submit'>Submit</Form.Button>
         </Form>;
+
+        if (this.props.user.error) {
+            return <div>
+                <div>Error error</div>
+
+                {form}
+            </div>;
+        }
+
+        return form;
     }
 }
 
