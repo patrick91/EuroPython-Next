@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from rest_framework import routers
+from rest_framework.authtoken import views
 from user import views as user_views
 from conference import views as conference_views
 
@@ -27,5 +28,7 @@ router.register(r'conference', conference_views.ConferenceViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url to obtain a new token
+    url(r'^api-token-auth/', views.obtain_auth_token)
     ]
