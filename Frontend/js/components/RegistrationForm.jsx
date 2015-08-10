@@ -62,9 +62,17 @@ class RegistrationForm extends React.Component {
           <Form.Button type='submit'>Submit</Form.Button>
         </Form>;
 
-        if (this.props.user.error) {
+        if (this.props.user.registration_error) {
             return <div>
-                <div>Error error</div>
+                <div>Error while registering</div>
+
+                {form}
+            </div>;
+        }
+
+        if (this.props.user.registration_success) {
+            return <div>
+                <div>You can login now!</div>
 
                 {form}
             </div>;

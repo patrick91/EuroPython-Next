@@ -54,7 +54,7 @@ class RegistrationForm extends React.Component {
           <Form.Button type='submit'>Submit</Form.Button>
         </Form>;
 
-        if (this.props.user.error) {
+        if (this.props.user.login_error) {
             return <div>
                 <div>Username or password invalid.</div>
 

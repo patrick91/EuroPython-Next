@@ -4,21 +4,25 @@ module.exports = function user(state={user: null}, action) {
     switch (action.type) {
     case ActionTypes.User.register:
         return {
-            registered: true,
+            ...state,
+            registration_error: false,
+            registration_success: true,
         };
     case ActionTypes.User.registration_error:
         return {
-            error: true,
+            ...state,
+            registration_error: true,
         };
     case ActionTypes.User.login:
         return {
-            ...user,
+            ...state,
             logged: true,
             token: action.token,
         };
     case ActionTypes.User.login_error:
         return {
-            error: true,
+            ...state,
+            login_error: true,
         };
     default:
         return state;
