@@ -14,8 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url, include
+
 from rest_framework import routers
 from rest_framework.authtoken import views
+
 from user import views as user_views
 from conference import views as conference_views
 
@@ -31,4 +33,4 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # url to obtain a new token
     url(r'^api-token-auth/', views.obtain_auth_token)
-    ]
+]
