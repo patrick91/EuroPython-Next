@@ -1,8 +1,9 @@
 module.exports = {
     context: __dirname + '/js',
     entry: {
-        index: './entrypoints/index',
-        registration: './entrypoints/registration',
+        index: ['./entrypoints/index', 'webpack/hot/only-dev-server'],
+        user: ['./entrypoints/user', 'webpack/hot/only-dev-server'],
+        devServerClient: 'webpack-dev-server/client?http://0.0.0.0:3000'
     },
     output: {
         filename: '[name].entry.js',
@@ -11,7 +12,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            { test: /\.jsx$/, loader: 'babel-loader' },
+            { test: /\.jsx$/, loaders: ['react-hot', 'babel-loader'] },
         ],
     },
     resolve: {

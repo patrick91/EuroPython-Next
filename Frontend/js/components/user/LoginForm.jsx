@@ -56,7 +56,7 @@ class RegistrationForm extends React.Component {
 
         if (this.props.user.error) {
             return <div>
-                <div>Error error</div>
+                <div>Username or password invalid.</div>
 
                 {form}
             </div>;

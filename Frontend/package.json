@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "js/index.jsx",
   "scripts": {
-    "dev": "webpack-dev-server --devtool --hot --progress --port 8888 --colors",
+    "dev": "webpack-dev-server --devtool --hot --progress --port 5000 --colors",
     "build": "webpack"
   },
   "author": "",
@@ -24,6 +24,7 @@
     "css-loader": "^0.15.6",
     "eslint": "^1.1.0",
     "eslint-plugin-react": "^3.2.1",
+    "react-hot-loader": "^1.2.8",
     "style-loader": "^0.12.3",
     "webpack-dev-server": "^1.10.1"
   }
