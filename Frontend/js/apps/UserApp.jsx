@@ -20,12 +20,16 @@ class UserApp extends React.Component {
 
         if (user.logged) {
             return <div>Hey</div>;
+        } else {
+            return <div>
+                <h1>Login</h1>
+                <LoginForm user={user} actions={actions} />
+                <h1>Or register</h1>
+                <RegistrationForm user={user} actions={actions} />
+            </div>;
         }
 
-        // TODO: if registration
-        // return <RegistrationForm user={user} actions={actions} />;
-
-        return <LoginForm user={user} actions={actions} />;
+        return ;
     }
 }
 
