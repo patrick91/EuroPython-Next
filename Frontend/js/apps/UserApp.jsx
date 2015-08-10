@@ -4,6 +4,7 @@ var bindActionCreators = require('redux').bindActionCreators;
 var connect = require('react-redux').connect;
 
 var RegistrationForm = require('../components/RegistrationForm');
+var LoginForm = require('../components/user/LoginForm');
 
 var userActions = require('../actions/user');
 
@@ -21,7 +22,10 @@ class UserApp extends React.Component {
             return <div>Hey</div>;
         }
 
-        return <RegistrationForm user={user} actions={actions} />;
+        // TODO: if registration
+        // return <RegistrationForm user={user} actions={actions} />;
+
+        return <LoginForm user={user} actions={actions} />;
     }
 }
 

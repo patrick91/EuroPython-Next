@@ -17,7 +17,6 @@ module.exports = {
                 .use(prefix)
                 .end(function(err, res) {
                     if (err) {
-                        console.log(res);
                         dispatch({
                             type: ActionTypes.User.registration_error,
                             res,
@@ -26,6 +25,32 @@ module.exports = {
                         dispatch({
                             type: ActionTypes.User.register,
                             username,
+                        });
+                    }
+                });
+        };
+    },
+    login: function(username, password) {
+        return (dispatch, getState) => {
+            request
+                .post('/api-token-auth/')
+                .send({
+                    username: username,
+                    password: password,
+                })
+                .use(prefix)
+                .end(function(err, res) {
+                    if (err) {
+                        dispatch({
+                            type: ActionTypes.User.login_error,
+                            res,
+                        });
+                    } else {
+                        var token = res.body.token;
+
+                        dispatch({
+                            type: ActionTypes.User.login,
+                            token,
                         });
                     }
                 });

@@ -4,5 +4,8 @@ module.exports = {
     User: keyMirror({
         register: null,
         registration_error: null,
+
+        login: null,
+        login_error: null,
     }),
 };
